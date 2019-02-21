@@ -100,13 +100,19 @@
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gDs-Kr-If7">
+                                <rect key="frame" x="169" y="580" width="37" height="37"/>
+                                <color key="color" red="0.098039215690000001" green="0.61568627450000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="95M-k7-UqN" secondAttribute="trailing" id="3KJ-8G-Hqw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="95M-k7-UqN" secondAttribute="bottom" id="5Lm-BA-lTH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gDs-Kr-If7" secondAttribute="bottom" constant="50" id="6Rb-xh-RTL"/>
                             <constraint firstItem="95M-k7-UqN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Jfx-8Y-0zS"/>
                             <constraint firstItem="9bO-Mx-dc4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JmM-7h-uiS"/>
+                            <constraint firstItem="gDs-Kr-If7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KCs-RY-pCo"/>
                             <constraint firstItem="95M-k7-UqN" firstAttribute="top" secondItem="9bO-Mx-dc4" secondAttribute="bottom" id="gNU-wN-Zyz"/>
                             <constraint firstItem="9bO-Mx-dc4" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="pPM-OA-pKN"/>
                             <constraint firstItem="9bO-Mx-dc4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="roZ-pc-Xpn"/>
@@ -117,6 +123,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="DDO-aD-8SU"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="gDs-Kr-If7" id="mOn-0Q-Sds"/>
                         <outlet property="professionSearchBar" destination="9bO-Mx-dc4" id="lJ5-hi-17L"/>
                         <outlet property="vacanciesTableView" destination="95M-k7-UqN" id="53d-DP-jte"/>
                         <segue destination="2pr-gP-dKq" kind="show" identifier="vacancyDetailsSegue" id="viK-9O-v5y"/>
