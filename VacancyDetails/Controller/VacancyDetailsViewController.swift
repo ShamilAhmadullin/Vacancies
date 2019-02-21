@@ -34,23 +34,7 @@ final class VacancyDetailsViewController: UIViewController {
             companyUrlTextView.text = companyUrl
         }
         if let companyLogo = vacancy.companyLogo {
-            checkImageFromCacheAndSetImage(companyLogo: companyLogo)
-        }
-    }
-    
-    private func checkImageFromCacheAndSetImage(companyLogo: String) {
-        if let imageFromCache = Cache.imageCache.object(forKey: companyLogo as AnyObject) as? UIImage {
-            companyLogoImageView.image = imageFromCache
-        } else {
-            addCacheAndSetImage(companyLogo: companyLogo)
-        }
-    }
-    
-    private func addCacheAndSetImage(companyLogo: String) {
-        if let url = URL(string: companyLogo) {
-            companyLogoImageView.downloaded(from: url) { image in
-                Cache.imageCache.setObject(image, forKey: companyLogo as AnyObject)
-            }
+            companyLogoImageView.kf.setImage(with: URL(string: companyLogo))
         }
     }
 }

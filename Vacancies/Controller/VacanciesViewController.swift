@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class VacanciesViewController: UIViewController {
     
@@ -73,26 +74,9 @@ extension VacanciesViewController: UITableViewDataSource {
     
     private func setVacancyComanyLogo(cell: VacanciesTableViewCell, indexPath: IndexPath) {
         if let companyLogo = vacancies[indexPath.row].companyLogo {
-            checkImageFromCacheAndSetImage(cell: cell, companyLogo: companyLogo)
+            cell.vacancyLogo.kf.setImage(with: URL(string: companyLogo))
         } else {
             cell.vacancyLogo.image = nil
-        }
-    }
-    
-    private func checkImageFromCacheAndSetImage(cell: VacanciesTableViewCell, companyLogo: String) {
-        if let imageFromCache = Cache.imageCache.object(forKey: companyLogo as AnyObject) as? UIImage {
-            cell.vacancyLogo.image = imageFromCache
-        } else {
-            cell.vacancyLogo.image = nil
-            addCacheAndSetImage(cell: cell, companyLogo: companyLogo)
-        }
-    }
-    
-    private func addCacheAndSetImage(cell: VacanciesTableViewCell, companyLogo: String) {
-        if let url = URL(string: companyLogo) {
-            cell.vacancyLogo.downloaded(from: url) { image in
-                Cache.imageCache.setObject(image, forKey: companyLogo as AnyObject)
-            }
         }
     }
 }
