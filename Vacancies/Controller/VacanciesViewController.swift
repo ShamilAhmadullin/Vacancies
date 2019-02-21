@@ -83,6 +83,7 @@ extension VacanciesViewController: UITableViewDataSource {
         if let imageFromCache = Cache.imageCache.object(forKey: companyLogo as AnyObject) as? UIImage {
             cell.vacancyLogo.image = imageFromCache
         } else {
+            cell.vacancyLogo.image = nil
             addCacheAndSetImage(cell: cell, companyLogo: companyLogo)
         }
     }
